@@ -28,6 +28,12 @@ jobs:
       - name: Logout from DOcker Hub
         run: docker logout
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-logs
+          path: test-results/
+
       - name: save artifacts
         run: |
          echo "Archiving artifacts test results..."
