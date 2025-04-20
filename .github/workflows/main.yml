@@ -7,7 +7,7 @@ on:
 
 jobs:
   docker-buid:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Code
@@ -28,15 +28,9 @@ jobs:
       - name: Logout from DOcker Hub
         run: docker logout
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+      - name: Upload Test Artifacts
+        uses: actions/upload-artifact@v3
         with:
-          name: test-logs
+          name: unit-test-results
           path: test-results/
-
-      - name: save artifacts
-        run: |
-         echo "Archiving artifacts test results..."
-         mkdir -p artifacts/test-results
-         cp -r test-results/* artifacts/test-results
          
