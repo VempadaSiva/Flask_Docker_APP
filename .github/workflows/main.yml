@@ -27,4 +27,10 @@ jobs:
 
       - name: Logout from DOcker Hub
         run: docker logout
+
+      - name: save artifacts
+        run: |
+         echo "Archiving artifacts test results..."
+         mkdir -p artifacts/test-results
+         cp -r test-results/* artifacts/test-results
          
