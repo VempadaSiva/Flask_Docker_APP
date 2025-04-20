@@ -7,7 +7,7 @@ on:
 
 jobs:
   docker-buid:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Code
@@ -28,14 +28,5 @@ jobs:
       - name: Logout from DOcker Hub
         run: docker logout
 
-      - name: Dummy Test Output
-        run: |
-          mkdir -p test-results
-          echo "Tests passed successfully" > test-results/result.txt
-
-      - name: Upload Test Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: unit-test-results
-          path: test-results
+      
          
